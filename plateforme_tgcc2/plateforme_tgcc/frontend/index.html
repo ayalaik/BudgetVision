@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TGCC | Prévision budgétaire</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><img src="/assets/logo_tgcc.png" alt="TGCC"><span>Prévision budgétaire</span></div>
+    <p class="nav-label">Navigation</p>
+    <nav>
+      <button class="nav-item active" data-page="simulation"><span>01</span>Simulation</button>
+      <button class="nav-item" data-page="portfolio"><span>02</span>Portefeuille</button>
+      <button class="nav-item" data-page="about"><span>03</span>À propos du modèle</button>
+    </nav>
+    <div class="system-info"><p class="nav-label">Système</p><div><small>Source</small><strong id="source">Chargement...</strong></div><div><small>Chantiers</small><strong id="count">—</strong></div><div><small>Entraînement</small><strong id="training">—</strong></div></div>
+    <p class="sidebar-footer">TGCC · CONSTRUISONS ENSEMBLE</p>
+  </aside>
+  <main class="main">
+    <header class="mobile-header"><button id="menu-toggle" aria-label="Ouvrir le menu">☰</button><b>TGCC</b></header>
+    <section id="simulation" class="page active-page">
+      <div class="page-heading"><p class="eyebrow">DÉCISION · SIMULATION</p><h1>Mesurer le risque avant qu'il ne coûte</h1><p>Projetez le dépassement budgétaire d'un chantier à partir de ses caractéristiques opérationnelles.</p></div>
+      <div class="workspace-grid">
+        <form id="simulation-form" class="panel form-panel">
+          <div class="panel-heading"><div><p class="eyebrow">PARAMÈTRES DU PROJET</p><h2>Un nouveau chantier</h2></div><select id="source-project" aria-label="Préremplir depuis un chantier"><option value="">Préremplir depuis...</option></select></div>
+          <div class="form-grid"><label>Nom du chantier<input name="nom" placeholder="Ex. Résidence Al Manzah"></label><label>Ville<input name="ville" placeholder="Ex. Casablanca"></label><label>Type de projet<select name="type_projet" id="type-projet"></select></label><label>Type de marché<select name="type_marche" id="type-marche"></select></label><label>Région<select name="region" id="region"></select></label><label>Budget prévisionnel <span>(MAD)</span><input name="budget" type="number" step="any"></label><label>Durée prévue <span>(mois)</span><input name="duree" type="number" step="any"></label><label>Superficie <span>(m²)</span><input name="superficie" type="number" step="any"></label><label>Nombre d'étages<input name="etages" type="number" step="any"></label><label>Fiabilité fournisseurs <span>(/5)</span><input name="fiabilite" type="number" step="any"></label><label>Écart coût à 3 mois <span>(%)</span><input name="ecart_cout" type="number" value="0" step="any"></label><label>Écart planning à 3 mois <span>(%)</span><input name="ecart_plan" type="number" value="0" step="any"></label></div>
+          <button class="primary-button" type="submit">Estimer le risque <span>→</span></button>
+          <p class="form-note">Les indicateurs à trois mois sont facultatifs pour une simulation en phase d'étude.</p>
+        </form>
+        <div id="simulation-result" class="panel result-panel empty-state"><span class="result-mark">↗</span><h2>Votre estimation apparaîtra ici</h2><p>Décrivez le chantier à gauche pour obtenir le niveau de risque, le surcoût projeté et sa position dans le portefeuille.</p></div>
+      </div>
+    </section>
+    <section id="portfolio" class="page"><div class="page-heading"><p class="eyebrow">PILOTAGE · PORTEFEUILLE</p><h1>Le portefeuille, en un regard</h1><p>Filtrez les chantiers, repérez les dérives et concentrez l'attention là où elle compte.</p></div><div class="filters"><label>Région<select id="filter-region" multiple></select></label><label>Type de projet<select id="filter-type" multiple></select></label><label>Statut<select id="filter-status" multiple></select></label><label>Risque<select id="filter-risk" multiple></select></label></div><div id="portfolio-summary" class="metric-row"></div><div class="charts-row"><div class="panel chart-panel"><div class="panel-heading"><h2>Répartition du risque</h2></div><div id="risk-chart" class="bars"></div></div><div class="panel chart-panel"><div class="panel-heading"><h2>Dépassement par région</h2></div><div id="region-chart" class="bars"></div></div></div><div id="alert-box"></div><div class="panel table-panel"><div class="panel-heading"><h2>Détail des chantiers</h2><span id="table-count"></span></div><div class="table-scroll"><table><thead><tr><th>Chantier</th><th>Ville</th><th>Région</th><th>Type</th><th>Statut</th><th>Dépassement</th><th>Risque</th><th>Projection</th></tr></thead><tbody id="portfolio-table"></tbody></table></div></div></section>
+    <section id="about" class="page"><div class="page-heading"><p class="eyebrow">TRANSPARENCE · MODÈLE</p><h1>Comprendre avant de décider</h1><p>Un modèle utile est un modèle dont les hypothèses restent lisibles.</p></div><div id="about-content"></div></section>
+  </main>
+</body>
+</html>

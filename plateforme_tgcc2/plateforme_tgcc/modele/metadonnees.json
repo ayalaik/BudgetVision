@@ -1,0 +1,140 @@
+{
+  "date_entrainement": "14/09/2026 à 02:28",
+  "features_cat": [
+    "Type_Projet",
+    "Type_Marche",
+    "Region"
+  ],
+  "features_num": [
+    "Budget_Prevu_Total",
+    "Duree_Mois",
+    "Superficie_m2",
+    "Nb_Etages",
+    "Note_Fiabilite_Moy",
+    "Eloignement",
+    "Ecart_Cout_3M",
+    "Ecart_Planning_3M"
+  ],
+  "features": [
+    "Type_Projet",
+    "Type_Marche",
+    "Region",
+    "Budget_Prevu_Total",
+    "Duree_Mois",
+    "Superficie_m2",
+    "Nb_Etages",
+    "Note_Fiabilite_Moy",
+    "Eloignement",
+    "Ecart_Cout_3M",
+    "Ecart_Planning_3M"
+  ],
+  "labels": [
+    "Faible",
+    "Modéré",
+    "Élevé",
+    "Critique"
+  ],
+  "bins": [
+    -1000000000.0,
+    0.05,
+    0.1,
+    0.2,
+    1000000000.0
+  ],
+  "options": {
+    "Type_Projet": [
+      "Commercial",
+      "Educatif",
+      "Hotellerie",
+      "Industriel",
+      "Infrastructure",
+      "Residentiel",
+      "Sante",
+      "Sportif",
+      "Tour de bureaux"
+    ],
+    "Type_Marche": [
+      "Prive",
+      "Public"
+    ],
+    "Region": [
+      "Beni Mellal-Khenifra",
+      "Casablanca-Settat",
+      "Dakhla-Oued Ed-Dahab",
+      "Draa-Tafilalet",
+      "Fes-Meknes",
+      "L'Oriental",
+      "Laayoune-Sakia El Hamra",
+      "Marrakech-Safi",
+      "Rabat-Sale-Kenitra",
+      "Souss-Massa",
+      "Tanger-Tetouan-Al Hoceima"
+    ]
+  },
+  "defauts": {
+    "Budget_Prevu_Total": 30638156,
+    "Duree_Mois": 12,
+    "Superficie_m2": 30781,
+    "Nb_Etages": 2,
+    "Note_Fiabilite_Moy": 3.7,
+    "Eloignement": 0.0
+  },
+  "eloignement_par_region": {
+    "Beni Mellal-Khenifra": 0.3,
+    "Casablanca-Settat": 0.1,
+    "Dakhla-Oued Ed-Dahab": 1.0,
+    "Draa-Tafilalet": 0.6,
+    "Fes-Meknes": 0.2,
+    "L'Oriental": 0.4,
+    "Laayoune-Sakia El Hamra": 0.8,
+    "Marrakech-Safi": 0.3,
+    "Rabat-Sale-Kenitra": 0.0,
+    "Souss-Massa": 0.2,
+    "Tanger-Tetouan-Al Hoceima": 0.2
+  },
+  "metriques": {
+    "n_train": 112,
+    "n_predict": 32,
+    "r2": 0.635,
+    "mae": 0.044,
+    "mae_baseline": 0.0771,
+    "gain_vs_baseline": 0.43,
+    "accuracy": 0.598,
+    "accuracy_baseline": 0.304,
+    "accuracy_tolerance_1": 0.884
+  },
+  "importances": [
+    {
+      "variable": "Écart de coût à 3 mois",
+      "poids": 0.7147
+    },
+    {
+      "variable": "Durée du chantier",
+      "poids": 0.1443
+    },
+    {
+      "variable": "Écart de planning à 3 mois",
+      "poids": 0.0357
+    },
+    {
+      "variable": "Budget prévisionnel",
+      "poids": 0.0241
+    },
+    {
+      "variable": "Fiabilité des fournisseurs",
+      "poids": 0.0196
+    },
+    {
+      "variable": "Superficie",
+      "poids": 0.017
+    },
+    {
+      "variable": "Éloignement logistique",
+      "poids": 0.0156
+    },
+    {
+      "variable": "Nombre d'étages",
+      "poids": 0.011
+    }
+  ]
+}
